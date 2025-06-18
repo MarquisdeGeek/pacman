@@ -17,6 +17,7 @@ int i;
 
 void Pac_InitialisePlayer(GAME_STATE *ptr)
 {
+	ptr->Player.iScore = 0;
 	ptr->Player.iLives = 3;
 	Pac_ReinitialisePlayer(ptr);
 }
