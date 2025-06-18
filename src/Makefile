@@ -1,6 +1,10 @@
+ifndef PKG_CONFIG
+PKG_CONFIG=pkg-config
+endif
+
 #CFLAGS = -Wall -D_DEBUG -g
-#CFLAGS = -Wall 
-LDFLAGS = -lncurses
+CFLAGS = -Wall -Werror -pedantic
+LDLIBS=$(shell $(PKG_CONFIG) --libs ncurses)
 
 pacman: pacman.o player.o ghosts.o pills.o render.o board.o gameloop.o 
 pacman.o: pacman.h render.h gameloop.h

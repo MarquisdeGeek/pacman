@@ -201,7 +201,7 @@ int cnt=9;
 void Pac_DrawEndGame(void *pCtx, GAME_STATE *ptr)
 {
 	attron(A_BOLD | A_BLINK);
-	mvprintw(14, 9, "GAME  OVER");
+	mvprintw(14, 9, "%s", "GAME  OVER");
 	attroff(A_BOLD | A_BLINK);
 	Pac_Blit(pCtx);
 }
@@ -229,10 +229,10 @@ char *s2 = "Released under the GPL";
 
 	clear();
 	attron(COLOR_PAIR(PC_PILL));
-	mvprintw(2,CenteredX(s1), s1);
+	mvprintw(2,CenteredX(s1), "%s", s1);
 	attroff(COLOR_PAIR(PC_PILL));
 	attron(COLOR_PAIR(PC_PACMAN));
-	mvprintw(3,CenteredX(s2), s2);
+	mvprintw(3,CenteredX(s2), "%s", s2);
 	attroff(COLOR_PAIR(PC_PACMAN));
 }
 
@@ -248,7 +248,7 @@ int i,j;
 	attron(A_BOLD | COLOR_PAIR(PC_PACMAN));
 	for(i=0;i<MAX_PACMAN_LIVES;i++)
 		for(j=0;j<3;j++)
-			mvprintw(16+j,i*5+30,pacimg[j+(ptr->Player.iLives>i?0:3)]);
+			mvprintw(16+j,i*5+30,"%s", pacimg[j+(ptr->Player.iLives>i?0:3)]);
 	attroff(A_BOLD | COLOR_PAIR(PC_PACMAN));
 
 	i = CenteredX("Score : 123456");	/* get a pos base on av score digits */
@@ -269,8 +269,8 @@ char *s1 = "Another game, squire?";
 char *s2 = "Y/N";
 
 	attron(COLOR_PAIR(PC_GHOST));
-	mvprintw(12,CenteredX(s1), s1);
-	mvprintw(14,CenteredX(s2), s2);
+	mvprintw(12,CenteredX(s1), "%s", s1);
+	mvprintw(14,CenteredX(s2), "%s", s2);
 	attroff(COLOR_PAIR(PC_GHOST));
 
 	do {
